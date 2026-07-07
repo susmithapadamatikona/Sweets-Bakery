@@ -1,0 +1,65 @@
+/* =====================================================
+   Sweet Crumbs Bakery — cart.css (cart / checkout)
+   ===================================================== */
+
+.cart-layout { display: grid; grid-template-columns: 1fr 380px; gap: 30px; align-items: start; }
+
+/* Cart items */
+.cart-items { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+.cart-head { display: grid; grid-template-columns: 2.2fr 1fr 1.2fr 1fr 40px; gap: 12px; padding: 18px 26px; background: var(--light-accent); font-weight: 600; font-size: 14px; }
+.cart-row { display: grid; grid-template-columns: 2.2fr 1fr 1.2fr 1fr 40px; gap: 12px; align-items: center; padding: 20px 26px; border-bottom: 1px solid var(--border); transition: 0.3s var(--ease); }
+.cart-row:hover { background: var(--light-accent); }
+.cart-row:last-child { border-bottom: none; }
+.cart-product { display: flex; gap: 16px; align-items: center; }
+.cart-product img { width: 84px; height: 84px; border-radius: var(--radius); object-fit: cover; flex-shrink: 0; box-shadow: var(--shadow-xs); }
+.cart-product b { font-size: 16px; line-height: 1.3; }
+.cart-product small { color: var(--text-muted); font-size: 13px; }
+.cart-remove { width: 38px; height: 38px; border-radius: 50%; background: var(--light-accent); display: grid; place-items: center; color: #c0492f; transition: 0.3s var(--ease); }
+.cart-remove:hover { background: #c0492f; color: #fff; transform: rotate(90deg); }
+.cart-qty { display: inline-flex; align-items: center; border: 1.5px solid var(--border); border-radius: var(--radius-pill); overflow: hidden; }
+.cart-qty button { width: 34px; height: 34px; background: var(--light-accent); transition: 0.3s; }
+.cart-qty button:hover { background: var(--primary); color: #fff; }
+.cart-qty input { width: 40px; text-align: center; border: none; background: transparent; font-weight: 600; }
+.cart-labels { display: none; }
+
+.cart-actions { display: flex; justify-content: space-between; gap: 14px; margin-top: 20px; flex-wrap: wrap; }
+.coupon-box { display: flex; gap: 10px; }
+.coupon-box .input { width: 200px; }
+
+/* Summary card */
+.summary-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-sm); position: sticky; top: calc(var(--header-h) + 16px); }
+.summary-card h3 { font-size: 22px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.summary-row { display: flex; justify-content: space-between; padding: 10px 0; color: var(--text-muted); }
+.summary-row.total { border-top: 2px solid var(--border); margin-top: 12px; padding-top: 18px; font-size: 20px; font-weight: 700; color: var(--text); font-family: var(--font-head); }
+.summary-row.discount { color: #4b9b6b; }
+.summary-card .btn { margin-top: 22px; }
+.secure-note { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; font-size: 13px; color: var(--text-muted); }
+.pay-icons { display: flex; justify-content: center; gap: 10px; margin-top: 14px; opacity: 0.8; }
+.pay-icons span { padding: 5px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+
+/* ---------- CHECKOUT ---------- */
+.checkout-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 30px; align-items: start; }
+.checkout-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-sm); margin-bottom: 24px; }
+.checkout-block h3 { font-size: 22px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.checkout-block h3 .step-num { width: 34px; height: 34px; border-radius: 50%; background: var(--grad-primary); color: #fff; display: grid; place-items: center; font-size: 16px; }
+.pay-methods { display: grid; gap: 12px; }
+.pay-method { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border: 1.5px solid var(--border); border-radius: var(--radius); cursor: pointer; transition: 0.3s var(--ease); }
+.pay-method:hover { border-color: var(--primary); }
+.pay-method input { accent-color: var(--primary); width: 18px; height: 18px; }
+.pay-method.selected { border-color: var(--primary); background: var(--light-accent); }
+.pay-method .ico { margin-left: auto; font-size: 22px; }
+
+/* Order summary items in checkout */
+.co-item { display: flex; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.co-item img { width: 60px; height: 60px; border-radius: var(--radius); object-fit: cover; }
+.co-item .co-qty { margin-left: auto; font-weight: 600; }
+.co-item b { font-size: 15px; }
+.co-item small { color: var(--text-muted); }
+
+/* Responsive cart -> cards */
+@media (max-width: 720px) {
+  .cart-head { display: none; }
+  .cart-row { grid-template-columns: 1fr; gap: 14px; position: relative; padding: 20px; }
+  .cart-labels { display: inline; color: var(--text-muted); font-weight: 600; margin-right: 8px; }
+  .cart-remove { position: absolute; top: 16px; right: 16px; }
+}

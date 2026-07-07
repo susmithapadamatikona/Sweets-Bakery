@@ -1,0 +1,106 @@
+/* =====================================================
+   Sweet Crumbs Bakery — products.css
+   (products listing, product-details, categories, wishlist)
+   ===================================================== */
+
+/* ---------- Listing layout with sidebar ---------- */
+.products-layout { display: grid; grid-template-columns: 280px 1fr; gap: 34px; align-items: start; }
+.sidebar { position: sticky; top: calc(var(--header-h) + 16px); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-sm); }
+.sidebar__block { margin-bottom: 28px; }
+.sidebar__block:last-child { margin-bottom: 0; }
+.sidebar h4 { font-size: 18px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.filter-list li { margin-bottom: 4px; }
+.filter-list label { display: flex; align-items: center; justify-content: space-between; padding: 9px 12px; border-radius: var(--radius); cursor: pointer; transition: 0.3s var(--ease); font-size: 15px; }
+.filter-list label:hover { background: var(--light-accent); }
+.filter-list label.active { background: var(--light-accent); color: var(--accent-brown); font-weight: 600; }
+.filter-list .qty { font-size: 12px; color: var(--text-muted); background: var(--light-accent); padding: 2px 10px; border-radius: var(--radius-pill); }
+.price-range { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.price-range input[type="range"] { width: 100%; accent-color: var(--primary); }
+.range-vals { display: flex; justify-content: space-between; font-size: 14px; color: var(--text-muted); margin-top: 8px; }
+.star-filter { display: flex; flex-direction: column; gap: 6px; }
+.star-filter button { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: var(--radius); color: #e0a83e; transition: 0.3s var(--ease); }
+.star-filter button:hover, .star-filter button.active { background: var(--light-accent); }
+.star-filter button span { color: var(--text-muted); font-size: 14px; }
+
+/* Toolbar */
+.filter-bar.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; padding: 16px 22px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-xs); }
+.filter-bar.toolbar .result-count { color: var(--text-muted); font-size: 15px; }
+.filter-bar.toolbar .result-count b { color: var(--text); }
+.toolbar__right { display: flex; align-items: center; gap: 14px; }
+.sort-select { padding: 10px 16px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); }
+.view-toggle { display: flex; gap: 6px; }
+.view-toggle button { width: 40px; height: 40px; border-radius: var(--radius); background: var(--light-accent); display: grid; place-items: center; }
+.view-toggle button.active { background: var(--grad-primary); color: #fff; }
+
+/* mobile filter toggle */
+.filter-toggle-btn { display: none; }
+
+.no-results { text-align: center; padding: 60px 20px; grid-column: 1 / -1; }
+.no-results .emoji { font-size: 60px; }
+
+/* Pagination */
+.pagination { display: flex; justify-content: center; gap: 8px; margin-top: 50px; }
+.pagination a { min-width: 46px; height: 46px; padding: 0 14px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); display: grid; place-items: center; font-weight: 600; transition: 0.3s var(--ease); }
+.pagination a:hover, .pagination a.active { background: var(--grad-primary); color: #fff; border-color: transparent; }
+
+/* ---------- PRODUCT DETAILS ---------- */
+.details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+.gallery-main { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 1; position: relative; cursor: zoom-in; background: var(--light-accent); }
+.gallery-main img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease); }
+.gallery-main:hover img { transform: scale(1.6); }
+.gallery-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 14px; }
+.gallery-thumbs img { border-radius: var(--radius); aspect-ratio: 1; object-fit: cover; cursor: pointer; border: 2px solid transparent; transition: 0.3s var(--ease); opacity: 0.7; }
+.gallery-thumbs img:hover, .gallery-thumbs img.active { border-color: var(--primary); opacity: 1; }
+
+.details-info h1 { font-size: clamp(28px, 4vw, 42px); margin: 8px 0 12px; }
+.details-info .price { font-size: 34px; }
+.details-meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin: 14px 0; }
+.stock-tag { display: inline-flex; align-items: center; gap: 7px; color: #4b9b6b; font-weight: 600; font-size: 14px; }
+.stock-tag::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #4b9b6b; }
+.details-desc { color: var(--text-muted); margin: 8px 0 20px; }
+.qty-selector { display: inline-flex; align-items: center; border: 1.5px solid var(--border); border-radius: var(--radius-pill); overflow: hidden; }
+.qty-selector button { width: 46px; height: 46px; font-size: 20px; background: var(--light-accent); transition: 0.3s; }
+.qty-selector button:hover { background: var(--primary); color: #fff; }
+.qty-selector input { width: 54px; text-align: center; border: none; background: transparent; font-weight: 600; font-size: 16px; }
+.details-actions { display: flex; gap: 14px; margin: 20px 0; flex-wrap: wrap; }
+.details-features { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border); }
+.details-features li { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+.details-features .ico { width: 40px; height: 40px; border-radius: 12px; background: var(--light-accent); display: grid; place-items: center; font-size: 18px; }
+
+/* Tabs */
+.tabs { margin-top: 60px; }
+.tab-nav { display: flex; gap: 8px; border-bottom: 2px solid var(--border); margin-bottom: 28px; flex-wrap: wrap; }
+.tab-nav button { padding: 14px 24px; font-weight: 600; position: relative; color: var(--text-muted); }
+.tab-nav button.active { color: var(--accent-brown); }
+.tab-nav button::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 3px; background: var(--primary); transform: scaleX(0); transition: 0.3s var(--ease); }
+.tab-nav button.active::after { transform: scaleX(1); }
+.tab-panel { display: none; animation: fadeInUp 0.5s var(--ease); }
+.tab-panel.active { display: block; }
+.nutrition-table { width: 100%; border-collapse: collapse; max-width: 500px; }
+.nutrition-table th, .nutrition-table td { padding: 12px 18px; text-align: left; border-bottom: 1px solid var(--border); }
+.nutrition-table th { background: var(--light-accent); }
+.ingredient-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* Reviews */
+.review-item { display: flex; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+.review-item img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.review-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.review-head b { font-size: 16px; }
+.review-head small { color: var(--text-muted); }
+
+/* ---------- Categories page ---------- */
+.category-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.category-tile { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow-sm); display: flex; align-items: flex-end; }
+.category-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
+.category-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(60,30,15,0.82), transparent 60%); }
+.category-tile:hover img { transform: scale(1.1); }
+.category-tile__body { position: relative; z-index: 2; padding: 26px; color: #fff; }
+.category-tile__body h3 { color: #fff; font-size: 26px; }
+.category-tile__body p { color: rgba(255,255,255,0.85); font-size: 14px; margin: 6px 0 14px; }
+.category-tile__body .btn { pointer-events: auto; }
+
+/* ---------- Wishlist / empty states ---------- */
+.empty-state { text-align: center; padding: 80px 20px; max-width: 520px; margin: 0 auto; }
+.empty-state .emoji { font-size: 80px; display: block; margin-bottom: 20px; }
+.empty-state h2 { font-size: 30px; margin-bottom: 10px; }
+.empty-state p { color: var(--text-muted); margin-bottom: 26px; }

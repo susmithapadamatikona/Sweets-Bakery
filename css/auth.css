@@ -1,0 +1,80 @@
+/* =====================================================
+   Sweet Crumbs Bakery — auth.css (login / register / profile)
+   ===================================================== */
+
+.auth-page { min-height: calc(100dvh - var(--header-h)); display: grid; place-items: center; padding: 40px 20px; background: var(--grad-warm); position: relative; overflow: hidden; }
+.auth-grid { display: grid; grid-template-columns: 1fr 1fr; max-width: 1040px; width: 100%; background: var(--surface); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--border); position: relative; z-index: 2; }
+
+/* Illustration side */
+.auth-visual { position: relative; padding: 50px; color: #fff; display: flex; flex-direction: column; justify-content: space-between; min-height: 560px; overflow: hidden; }
+.auth-visual__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.auth-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(155,107,82,0.85), rgba(91,47,30,0.75)); z-index: 1; }
+.auth-visual > * { position: relative; z-index: 2; }
+.auth-visual h2 { color: #fff; font-size: 34px; line-height: 1.2; }
+.auth-visual p { color: rgba(255,255,255,0.9); margin-top: 12px; }
+.auth-visual .logo__img { height: 46px; }
+.auth-perks { display: grid; gap: 14px; margin-top: 30px; }
+.auth-perks li { display: flex; align-items: center; gap: 12px; }
+.auth-perks .tick { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.2); display: grid; place-items: center; }
+
+/* Form side */
+.auth-form-side { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+.auth-form-side h1 { font-size: 32px; }
+.auth-form-side .sub { color: var(--text-muted); margin: 8px 0 26px; }
+.auth-social { display: flex; gap: 12px; margin-bottom: 22px; }
+.auth-social button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border-radius: var(--radius); border: 1.5px solid var(--border); background: var(--surface); font-weight: 500; transition: 0.3s var(--ease); }
+.auth-social button:hover { background: var(--light-accent); border-color: var(--primary); }
+.auth-social svg, .auth-social span.g { width: 20px; height: 20px; }
+.divider-or { display: flex; align-items: center; gap: 14px; color: var(--text-muted); font-size: 14px; margin: 18px 0; }
+.divider-or::before, .divider-or::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+.auth-row { display: flex; align-items: center; justify-content: space-between; margin: 4px 0 20px; flex-wrap: wrap; gap: 8px; }
+.auth-row a { color: var(--primary); font-weight: 500; font-size: 14px; }
+.auth-foot { text-align: center; margin-top: 22px; color: var(--text-muted); }
+.auth-foot a { color: var(--primary); font-weight: 600; }
+
+/* Password strength */
+.strength { height: 6px; border-radius: 4px; background: var(--light-accent); margin-top: 8px; overflow: hidden; }
+.strength__bar { height: 100%; width: 0; border-radius: 4px; transition: width 0.4s var(--ease), background 0.4s; }
+.strength__label { font-size: 12px; margin-top: 6px; color: var(--text-muted); }
+
+/* =========== PROFILE / ORDERS =========== */
+.account-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; align-items: start; }
+.account-nav { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-sm); position: sticky; top: calc(var(--header-h) + 16px); }
+.account-user { text-align: center; padding-bottom: 22px; border-bottom: 1px solid var(--border); margin-bottom: 18px; }
+.account-user img { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; margin: 0 auto 12px; border: 4px solid var(--light-accent); }
+.account-user b { font-size: 19px; display: block; }
+.account-user small { color: var(--text-muted); }
+.account-menu a { display: flex; align-items: center; gap: 12px; padding: 13px 16px; border-radius: var(--radius); font-weight: 500; transition: 0.3s var(--ease); margin-bottom: 4px; }
+.account-menu a:hover, .account-menu a.active { background: var(--light-accent); color: var(--accent-brown); }
+.account-menu a.active { background: var(--grad-primary); color: #fff; }
+.account-menu svg { width: 18px; height: 18px; }
+
+.account-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 34px; box-shadow: var(--shadow-sm); }
+.account-panel h2 { font-size: 26px; margin-bottom: 6px; }
+.account-panel .sub { color: var(--text-muted); margin-bottom: 26px; }
+
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 30px; }
+.stat-mini { padding: 20px; border-radius: var(--radius); background: var(--light-accent); text-align: center; }
+.stat-mini b { font-family: var(--font-head); font-size: 30px; color: var(--primary); display: block; }
+.stat-mini small { color: var(--text-muted); }
+
+/* Orders table */
+.orders-table { width: 100%; border-collapse: collapse; }
+.orders-table th, .orders-table td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); }
+.orders-table th { background: var(--light-accent); font-size: 14px; }
+.orders-table tbody tr { transition: 0.3s var(--ease); }
+.orders-table tbody tr:hover { background: var(--light-accent); }
+.order-status { display: inline-block; padding: 5px 14px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 600; }
+.order-status.delivered { background: #d8f0e0; color: #2f7a52; }
+.order-status.processing { background: #fdf0d0; color: #a5791e; }
+.order-status.shipped { background: #d7e6fb; color: #2f5ea5; }
+.order-status.cancelled { background: #f7dcd6; color: #b0402c; }
+:root[data-theme="dark"] .order-status { filter: brightness(0.9); }
+
+@media (max-width: 900px) {
+  .auth-grid { grid-template-columns: 1fr; }
+  .auth-visual { min-height: 300px; }
+  .account-layout { grid-template-columns: 1fr; }
+  .account-nav { position: static; }
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+}
