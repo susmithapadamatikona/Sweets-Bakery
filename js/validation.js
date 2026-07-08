@@ -50,13 +50,44 @@
       const term = form.querySelector('input[data-required-check]');
       if (term && !term.checked) { ok = false; window.SC.toast("Please agree", "Accept the terms to continue", "⚠️"); }
       if (ok) {
+        // Persist auth info so the dashboard can greet the user
+        try {
+          const emailInput = form.querySelector('input[type="email"]');
+          const roleSelect = form.querySelector("[data-role]");
+          const nameInput = form.querySelector('input[data-validate*="name"]');
+          if (emailInput && emailInput.value) localStorage.setItem("sc_user_email", emailInput.value.trim());
+          if (roleSelect && roleSelect.value) localStorage.setItem("sc_user_role", roleSelect.value);
+          // Store the name on register; clear it on login (no name field) so the
+          // dashboard greeting always reflects the email actually used to sign in.
+          if (nameInput && nameInput.value) localStorage.setItem("sc_user_name", nameInput.value.trim());
+          else if (emailInput) localStorage.removeItem("sc_user_name");
+        } catch (err) { /* storage unavailable — non-fatal */ }
+
         const msg = form.getAttribute("data-success") || "Success!";
-        window.SC.toast("Done 🎉", msg, "✅");
-        if (form.getAttribute("data-redirect")) {
-          setTimeout(function () { location.href = form.getAttribute("data-redirect"); }, 1000);
+        const redirect = form.getAttribute("data-redirect");
+        const submitBtn = form.querySelector("button[type='submit'], button:not([type])");
+        const animate = submitBtn && !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+        if (animate) {
+          // Loading spinner → success checkmark before proceeding
+          submitBtn.classList.add("is-loading");
+          setTimeout(function () {
+            submitBtn.classList.remove("is-loading");
+            submitBtn.classList.add("is-success");
+            window.SC.toast("Done 🎉", msg, "✅");
+          }, 600);
         } else {
-          form.reset();
-          form.querySelectorAll(".valid").forEach(function (i) { i.classList.remove("valid"); });
+          window.SC.toast("Done 🎉", msg, "✅");
+        }
+
+        if (redirect) {
+          setTimeout(function () { location.href = redirect; }, animate ? 1250 : 900);
+        } else {
+          setTimeout(function () {
+            form.reset();
+            form.querySelectorAll(".valid").forEach(function (i) { i.classList.remove("valid"); });
+            if (submitBtn) submitBtn.classList.remove("is-success");
+          }, animate ? 1400 : 200);
         }
       } else {
         const firstErr = form.querySelector(".invalid");

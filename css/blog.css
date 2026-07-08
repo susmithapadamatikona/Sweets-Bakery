@@ -12,8 +12,13 @@
 .blog-featured__body h2 { color: #fff; font-size: clamp(26px, 3.4vw, 38px); margin: 12px 0; }
 .blog-featured__body p { color: rgba(255,255,255,0.88); }
 .blog-featured .badge-soft { background: var(--primary); color: #fff; }
+.blog-meta--light { color: rgba(255,255,255,0.9); margin-top: 14px; }
+
+/* Section heading above the article grid */
+.blog-list-title { font-size: 24px; margin: 0 0 22px; }
 
 .blog-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.blog-list-grid .blog-card__body p { color: var(--text-muted); font-size: 15px; }
 
 /* Sidebar */
 .blog-sidebar .widget { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; margin-bottom: 26px; box-shadow: var(--shadow-xs); }

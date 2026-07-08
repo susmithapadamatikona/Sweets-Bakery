@@ -28,18 +28,48 @@
     }, 3200);
   };
 
-  /* ---------- Preloader ---------- */
+  /* ---------- Preloader (stays visible ~1.3s minimum) ---------- */
   (function () {
+    var MIN_MS = 1300;
     var hidden = false;
-    function hide() {
+    function doHide() {
       if (hidden) return; hidden = true;
       var pre = document.getElementById("preloader");
       if (pre) pre.classList.add("hidden");
     }
-    if (document.readyState === "complete") hide();
-    window.addEventListener("load", hide);
-    // Fallback: never trap the user if slow external images stall the load event.
-    setTimeout(hide, 1200);
+    function requestHide() {
+      // Keep the loader up for at least MIN_MS since the page started loading.
+      var elapsed = (window.performance && performance.now) ? performance.now() : MIN_MS;
+      setTimeout(doHide, Math.max(0, MIN_MS - elapsed));
+    }
+    if (document.readyState === "complete") requestHide();
+    window.addEventListener("load", requestHide);
+    // Absolute safety cap: never trap the user beyond 4s if load stalls.
+    setTimeout(doHide, 4000);
+  })();
+
+  /* ---------- Show loading screen during page-to-page navigation ---------- */
+  (function () {
+    const pre = document.getElementById("preloader");
+    if (!pre) return;
+    document.addEventListener("click", function (e) {
+      const a = e.target.closest("a");
+      if (!a) return;
+      if (a.target === "_blank" || a.hasAttribute("download")) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      const href = a.getAttribute("href");
+      if (!href || href.charAt(0) === "#") return;
+      if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+      let url;
+      try { url = new URL(href, location.href); } catch (err) { return; }
+      if (url.origin !== location.origin) return;               // external link
+      if (url.pathname === location.pathname && url.hash) return; // same-page anchor
+      pre.classList.remove("hidden"); // reveal loader while the next page loads
+    });
+    // Returning via back/forward cache: ensure the loader is hidden again
+    window.addEventListener("pageshow", function (e) {
+      if (e.persisted) pre.classList.add("hidden");
+    });
   })();
 
   /* ---------- Dark Mode Toggle (persisted) ---------- */
@@ -129,13 +159,17 @@
     });
   }
 
-  /* ---------- Button Ripple ---------- */
+  /* ---------- Ripple (buttons, controls & cards) ---------- */
+  const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.addEventListener("click", function (e) {
-    const btn = e.target.closest(".btn");
+    if (reducedMotion) return;
+    const btn = e.target.closest(".btn, .mini-btn, .dash-action, .card, .dash-treat, .dash-stat");
     if (!btn) return;
+    // cards use a soft, brand-tinted ripple; buttons use the default white
+    const soft = !btn.matches(".btn, .mini-btn, .dash-action");
     const rect = btn.getBoundingClientRect();
     const r = document.createElement("span");
-    r.className = "ripple";
+    r.className = soft ? "ripple ripple--soft" : "ripple";
     const size = Math.max(rect.width, rect.height);
     r.style.width = r.style.height = size + "px";
     r.style.left = (e.clientX - rect.left - size / 2) + "px";

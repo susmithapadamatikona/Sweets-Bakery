@@ -6,9 +6,21 @@
   "use strict";
 
   const header = document.querySelector(".header");
+  const navMenu = document.querySelector(".nav__menu");
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+  const wishlistLink = document.querySelector('a.icon-btn[aria-label="Wishlist"]');
+  const cartLink = document.querySelector('a.icon-btn[aria-label="Cart"]');
+  const navAuth = document.querySelector(".nav__auth");
   const hamburger = document.querySelector(".hamburger");
   const mobileNav = document.querySelector(".mobile-nav");
   const overlay = document.querySelector(".overlay");
+
+  /* Keep core controls inside the primary navbar structure */
+  if (navMenu) {
+    [themeToggle, wishlistLink, cartLink, navAuth].forEach(function (node) {
+      if (node) navMenu.appendChild(node);
+    });
+  }
 
   /* Sticky / scrolled state */
   if (header) {

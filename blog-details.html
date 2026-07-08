@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%81%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/aos.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/blog.css">
@@ -25,8 +26,9 @@
   <!-- Preloader -->
   <div id="preloader">
     <div class="loader">
+      <img src="images/logos/stackly-logo.webp" alt="Stackly" class="loader__logo">
       <div class="loader__ring"></div>
-      <div class="loader__text">Sweet Crumbs<small>Baking happiness…</small></div>
+      <p class="loader__msg">Loading…</p>
     </div>
   </div>
 
@@ -39,7 +41,6 @@
       <nav class="nav__menu" aria-label="Primary">
         <a href="index.html" class="nav__link">Home</a>
         <a href="about.html" class="nav__link">About</a>
-        <a href="products.html" class="nav__link">Products</a>
         <a href="categories.html" class="nav__link">Categories</a>
         <a href="gallery.html" class="nav__link">Gallery</a>
         <a href="blog.html" class="nav__link">Blog</a>
@@ -67,7 +68,6 @@
     </div>
       <a href="index.html" class="nav__link">Home</a>
       <a href="about.html" class="nav__link">About</a>
-      <a href="products.html" class="nav__link">Products</a>
       <a href="categories.html" class="nav__link">Categories</a>
       <a href="gallery.html" class="nav__link">Gallery</a>
       <a href="blog.html" class="nav__link">Blog</a>
@@ -79,7 +79,7 @@
     </div>
   </aside>
 
-  <section class="page-hero" style="--hero-img:url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1600&q=60')">
+  <section class="page-hero" style="background-image:url('images/baking-kitchen.webp')">
     <div class="blob-shape" style="width:340px;height:340px;top:-120px;left:-80px"></div>
     <div class="blob-shape" style="width:260px;height:260px;bottom:-120px;right:-60px"></div>
     <div class="container">
@@ -94,27 +94,27 @@
         <article class="article">
           <span class="badge-soft">Baking Tips</span>
           <h1 style="font-size:clamp(28px,4vw,42px);margin:14px 0">5 Secrets to the Perfect Fluffy Sponge Cake</h1>
-          <div class="article__meta"><div class="author"><img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=300&q=70" alt="Marco Rossi"><span><b>Marco Rossi</b><br><small>Head Pastry Chef</small></span></div><span>🗓️ March 12, 2026</span><span>⏱️ 6 min read</span></div>
-          <div class="article__hero"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=70" alt="Fluffy sponge cake"></div>
+          <div class="article__meta"><div class="author"><img src="images/team-chef-1.webp" alt="Marco Rossi"><span><b>Marco Rossi</b><br><small>Head Pastry Chef</small></span></div><span>🗓️ March 12, 2026</span><span>⏱️ 6 min read</span></div>
+          <div class="article__hero"><img src="images/strawberry-cake.webp" alt="Fluffy sponge cake"></div>
           <p>There's nothing quite like slicing into a sponge cake so light it practically floats off the plate. After fifteen years behind the oven, our head pastry chef is sharing the exact secrets we use at Sweet Crumbs to get that cloud-soft crumb every single time.</p>
           <h2>1. Room Temperature Is Everything</h2>
           <p>Cold eggs and butter simply won't emulsify properly. Leave your ingredients out for at least 30 minutes before baking — it makes an enormous difference to how much air you can whip in.</p>
           <blockquote>"A great sponge isn't about fancy equipment. It's about respecting the basics — temperature, timing and a gentle hand."</blockquote>
           <h2>2. Whip Air, Don't Beat It Out</h2>
           <p>Cream your butter and sugar until pale and fluffy, then fold — never stir — your flour in. Overmixing develops gluten and knocks out the very air bubbles that make a sponge rise tall and tender.</p>
-          <div class="article__figure"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=900&q=70" alt="Cake batter" loading="lazy"></div>
+          <div class="article__figure"><img src="images/birthday-cake.webp" alt="Cake batter" loading="lazy"></div>
           <h3>3. Sift, Then Sift Again</h3>
           <p>Sifting your dry ingredients twice aerates the flour and guarantees an even, lump-free batter. It's a small step that pays off in a beautifully uniform texture.</p>
           <ul class="dotted"><li>Use cake flour for the softest crumb.</li><li>Weigh ingredients rather than using cups.</li><li>Never open the oven in the first 20 minutes.</li><li>Cool completely before frosting.</li></ul>
           <p>Follow these and you'll have bakery-quality sponge at home. Happy baking — and don't forget to tag us in your creations!</p>
           <div class="article__tags"><span class="badge-soft">Sponge</span><span class="badge-soft">Baking Tips</span><span class="badge-soft">Cake</span><span class="badge-soft">Beginner</span></div>
-          <div class="share-row"><b>Share:</b><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-1.9 2-1.9h2V2.1C16.7 2 15.5 2 14.3 2 11.3 2 9.3 3.7 9.3 7v3H6v4h3.3v8H13z"/></svg></a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.5-2.3.6.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4 4 0 00-6.9 3.7A11.4 11.4 0 013 4.8a4 4 0 001.3 5.4c-.7 0-1.3-.2-1.8-.5v.1a4 4 0 003.2 3.9c-.6.2-1.2.2-1.8.1a4 4 0 003.7 2.8A8 8 0 012 18.6a11.3 11.3 0 006.1 1.8c7.3 0 11.4-6.1 11.4-11.4v-.5c.8-.6 1.5-1.3 2-2.2z"/></svg></a><a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.6 19.3c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.5 2.1-.8 3.3-.2 1 .5 1.8 1.5 1.8 1.8 0 3-2.3 3-5 0-2-1.4-3.6-4-3.6a4.6 4.6 0 00-4.8 4.6c0 .9.3 1.5.7 2 .2.2.2.3.1.5l-.2 1c-.1.3-.3.4-.6.2-1.5-.6-2.2-2.3-2.2-4.2C6.5 6.6 9 4 12.6 4c3.9 0 6.5 2.8 6.5 5.8 0 4-2.2 6.9-5.4 6.9-1.1 0-2.1-.6-2.5-1.3l-.7 2.6c-.2.9-.8 2-1.2 2.6A10 10 0 1012 2z"/></svg></a></div>
-          <div class="author-box"><img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=300&q=70" alt="Marco Rossi"><div><h3 style="margin-bottom:6px">Marco Rossi</h3><p style="color:var(--text-muted)">Head Pastry Chef at Sweet Crumbs with 15+ years of experience. Marco lives for laminated dough and a perfectly tempered chocolate.</p></div></div>
+          <div class="share-row"><b>Share:</b><a href="404.html" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-1.9 2-1.9h2V2.1C16.7 2 15.5 2 14.3 2 11.3 2 9.3 3.7 9.3 7v3H6v4h3.3v8H13z"/></svg></a><a href="404.html" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="404.html" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="404.html" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.6 19.3c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.5 2.1-.8 3.3-.2 1 .5 1.8 1.5 1.8 1.8 0 3-2.3 3-5 0-2-1.4-3.6-4-3.6a4.6 4.6 0 00-4.8 4.6c0 .9.3 1.5.7 2 .2.2.2.3.1.5l-.2 1c-.1.3-.3.4-.6.2-1.5-.6-2.2-2.3-2.2-4.2C6.5 6.6 9 4 12.6 4c3.9 0 6.5 2.8 6.5 5.8 0 4-2.2 6.9-5.4 6.9-1.1 0-2.1-.6-2.5-1.3l-.7 2.6c-.2.9-.8 2-1.2 2.6A10 10 0 1012 2z"/></svg></a></div>
+          <div class="author-box"><img src="images/team-chef-1.webp" alt="Marco Rossi"><div><h3 style="margin-bottom:6px">Marco Rossi</h3><p style="color:var(--text-muted)">Head Pastry Chef at Sweet Crumbs with 15+ years of experience. Marco lives for laminated dough and a perfectly tempered chocolate.</p></div></div>
           <h2 style="margin-top:40px">Comments (3)</h2>
           
-          <div class="comment"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=70" alt="Ananya"><div class="comment__body"><div class="review-head"><b>Ananya</b><small>2 days ago</small></div><p style="color:var(--text-muted);margin-top:6px">This worked perfectly! My sponge has never been so fluffy. Thank you Marco!</p></div></div>
-          <div class="comment"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=70" alt="Rahul"><div class="comment__body"><div class="review-head"><b>Rahul</b><small>2 days ago</small></div><p style="color:var(--text-muted);margin-top:6px">The tip about not opening the oven was a game changer for me.</p></div></div>
-          <div class="comment"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=70" alt="Sara"><div class="comment__body"><div class="review-head"><b>Sara</b><small>2 days ago</small></div><p style="color:var(--text-muted);margin-top:6px">Love these detailed guides. Please do one on macarons next!</p></div></div>
+          <div class="comment"><img src="images/avatar-1.webp" alt="Ananya"><div class="comment__body"><div class="review-head"><b>Ananya</b><small>2 days ago</small></div><p style="color:var(--text-muted);margin-top:6px">This worked perfectly! My sponge has never been so fluffy. Thank you Marco!</p></div></div>
+          <div class="comment"><img src="images/avatar-2.webp" alt="Rahul"><div class="comment__body"><div class="review-head"><b>Rahul</b><small>2 days ago</small></div><p style="color:var(--text-muted);margin-top:6px">The tip about not opening the oven was a game changer for me.</p></div></div>
+          <div class="comment"><img src="images/avatar-3.webp" alt="Sara"><div class="comment__body"><div class="review-head"><b>Sara</b><small>2 days ago</small></div><p style="color:var(--text-muted);margin-top:6px">Love these detailed guides. Please do one on macarons next!</p></div></div>
           <div class="contact-form-card" style="margin-top:24px"><h3 style="margin-bottom:18px">Leave a Comment</h3>
             <form data-validate-form data-success="Comment posted! Thanks for sharing.">
               <div class="form-row"><div class="field"><input class="input" placeholder="Your name" data-validate="required|name"><span class="field-error"></span></div><div class="field"><input class="input" type="email" placeholder="Your email" data-validate="required|email"><span class="field-error"></span></div></div>
@@ -128,31 +128,31 @@
       <h2 class="section-title" data-reveal="up" data-delay="1">Related <span class="accent">Articles</span></h2>
       
     </div><div class="blog-grid"><article class="card blog-card" data-reveal="up" data-delay="1">
-    <a href="blog-details.html" class="blog-card__media"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=600&q=70" alt="The Art of Cake Decoration for Beginners" loading="lazy"></a>
+    <a href="blog-details.html" class="blog-card__media"><img src="images/birthday-cake.webp" alt="The Art of Cake Decoration for Beginners" loading="lazy"></a>
     <div class="blog-card__body">
       <span class="badge-soft">Decoration</span>
       <div class="blog-meta"><span>🗓️ Mar 08, 2026</span><span>✍️ Aditya Verma</span></div>
       <a href="blog-details.html"><h3>The Art of Cake Decoration for Beginners</h3></a>
       <p style="color:var(--text-muted)">From smooth buttercream to elegant piping, learn the fundamentals of turning a simple cake into a showstopper.</p>
-      <a href="blog-details.html" class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="404.html" class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </article><article class="card blog-card" data-reveal="up" data-delay="2">
-    <a href="blog-details.html" class="blog-card__media"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=70" alt="Healthy Homemade Bread Without the Guilt" loading="lazy"></a>
+    <a href="blog-details.html" class="blog-card__media"><img src="images/breads.webp" alt="Healthy Homemade Bread Without the Guilt" loading="lazy"></a>
     <div class="blog-card__body">
       <span class="badge-soft">Healthy</span>
       <div class="blog-meta"><span>🗓️ Mar 01, 2026</span><span>✍️ Sofia Laurent</span></div>
       <a href="blog-details.html"><h3>Healthy Homemade Bread Without the Guilt</h3></a>
       <p style="color:var(--text-muted)">Wholesome multigrain loaves packed with flavour and fibre — proof that healthy bread can taste amazing.</p>
-      <a href="blog-details.html" class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="404.html" class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </article><article class="card blog-card" data-reveal="up" data-delay="3">
-    <a href="blog-details.html" class="blog-card__media"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=70" alt="Festival Sweets: Traditional Recipes Reimagined" loading="lazy"></a>
+    <a href="blog-details.html" class="blog-card__media"><img src="images/sweets.webp" alt="Festival Sweets: Traditional Recipes Reimagined" loading="lazy"></a>
     <div class="blog-card__body">
       <span class="badge-soft">Festival</span>
       <div class="blog-meta"><span>🗓️ Feb 24, 2026</span><span>✍️ Emma Bakerly</span></div>
       <a href="blog-details.html"><h3>Festival Sweets: Traditional Recipes Reimagined</h3></a>
       <p style="color:var(--text-muted)">Celebrate the season with our modern twist on classic festive sweets, made with premium ingredients.</p>
-      <a href="blog-details.html" class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="404.html" class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </article></div></div>
       </div>
@@ -166,11 +166,11 @@
           <a href="index.html" class="logo"><img src="images/logos/stackly-logo.webp" alt="Stackly" class="logo__img"></a>
           <p style="margin-top:18px;max-width:320px">Freshly baked happiness every day. Handcrafted cakes, breads &amp; sweets made with love, premium ingredients and a pinch of magic.</p>
           <div class="socials">
-            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-1.9 2-1.9h2V2.1C16.7 2 15.5 2 14.3 2 11.3 2 9.3 3.7 9.3 7v3H6v4h3.3v8H13z"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-            <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.5-2.3.6.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4 4 0 00-6.9 3.7A11.4 11.4 0 013 4.8a4 4 0 001.3 5.4c-.7 0-1.3-.2-1.8-.5v.1a4 4 0 003.2 3.9c-.6.2-1.2.2-1.8.1a4 4 0 003.7 2.8A8 8 0 012 18.6a11.3 11.3 0 006.1 1.8c7.3 0 11.4-6.1 11.4-11.4v-.5c.8-.6 1.5-1.3 2-2.2z"/></svg></a>
-            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.4-.4-5a2.6 2.6 0 00-1.8-1.8C19 4.7 12 4.7 12 4.7s-7 0-8.8.5A2.6 2.6 0 001.4 7C1 8.6 1 12 1 12s0 3.4.4 5a2.6 2.6 0 001.8 1.8c1.8.5 8.8.5 8.8.5s7 0 8.8-.5A2.6 2.6 0 0022.6 17c.4-1.6.4-5 .4-5zM9.7 15.3V8.7l5.8 3.3-5.8 3.3z"/></svg></a>
-            <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.6 19.3c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.5 2.1-.8 3.3-.2 1 .5 1.8 1.5 1.8 1.8 0 3-2.3 3-5 0-2-1.4-3.6-4-3.6a4.6 4.6 0 00-4.8 4.6c0 .9.3 1.5.7 2 .2.2.2.3.1.5l-.2 1c-.1.3-.3.4-.6.2-1.5-.6-2.2-2.3-2.2-4.2C6.5 6.6 9 4 12.6 4c3.9 0 6.5 2.8 6.5 5.8 0 4-2.2 6.9-5.4 6.9-1.1 0-2.1-.6-2.5-1.3l-.7 2.6c-.2.9-.8 2-1.2 2.6A10 10 0 1012 2z"/></svg></a>
+            <a href="404.html" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-4H13V7.5c0-1.1.3-1.9 2-1.9h2V2.1C16.7 2 15.5 2 14.3 2 11.3 2 9.3 3.7 9.3 7v3H6v4h3.3v8H13z"/></svg></a>
+            <a href="404.html" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="404.html" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="404.html" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.4-.4-5a2.6 2.6 0 00-1.8-1.8C19 4.7 12 4.7 12 4.7s-7 0-8.8.5A2.6 2.6 0 001.4 7C1 8.6 1 12 1 12s0 3.4.4 5a2.6 2.6 0 001.8 1.8c1.8.5 8.8.5 8.8.5s7 0 8.8-.5A2.6 2.6 0 0022.6 17c.4-1.6.4-5 .4-5zM9.7 15.3V8.7l5.8 3.3-5.8 3.3z"/></svg></a>
+            <a href="404.html" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.6 19.3c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.5 2.1-.8 3.3-.2 1 .5 1.8 1.5 1.8 1.8 0 3-2.3 3-5 0-2-1.4-3.6-4-3.6a4.6 4.6 0 00-4.8 4.6c0 .9.3 1.5.7 2 .2.2.2.3.1.5l-.2 1c-.1.3-.3.4-.6.2-1.5-.6-2.2-2.3-2.2-4.2C6.5 6.6 9 4 12.6 4c3.9 0 6.5 2.8 6.5 5.8 0 4-2.2 6.9-5.4 6.9-1.1 0-2.1-.6-2.5-1.3l-.7 2.6c-.2.9-.8 2-1.2 2.6A10 10 0 1012 2z"/></svg></a>
           </div>
         </div>
         <div>
@@ -179,7 +179,7 @@
         </div>
         <div>
           <h4>Our Treats</h4>
-          <ul class="footer__links"><li><a href="products.html?cat=Cake">Cakes</a></li><li><a href="products.html?cat=Cupcake">Cupcakes</a></li><li><a href="products.html?cat=Cookies">Cookies</a></li><li><a href="products.html?cat=Bread">Breads</a></li><li><a href="products.html?cat=Donuts">Donuts</a></li><li><a href="products.html?cat=Macarons">Macarons</a></li></ul>
+          <ul class="footer__links"><li><a href="404.html">Cakes</a></li><li><a href="404.html">Cupcakes</a></li><li><a href="404.html">Cookies</a></li><li><a href="404.html">Breads</a></li><li><a href="404.html">Donuts</a></li><li><a href="404.html">Macarons</a></li></ul>
         </div>
         <div>
           <h4>Newsletter</h4>
@@ -200,6 +200,7 @@
   <button class="scroll-top" aria-label="Scroll to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
   <script src="js/main.js"></script>
   <script src="js/navbar.js"></script>
+  <script src="js/aos.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>

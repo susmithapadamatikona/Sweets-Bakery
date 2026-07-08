@@ -5,34 +5,34 @@
 (function () {
   "use strict";
 
-  function img(id) { return "https://images.unsplash.com/photo-" + id + "?auto=format&fit=crop&w=700&q=70"; }
+  function img(name) { return "images/" + name + ".webp"; }
 
   /* ---------- Catalog ---------- */
   const PRODUCTS = [
-    { id: "p1",  name: "Belgian Chocolate Cake", cat: "Cake",     price: 899, old: 1099, rating: 4.9, badge: "Bestseller", img: img("1578985545062-69928b1d9587") },
-    { id: "p2",  name: "Strawberry Cream Cake",   cat: "Cake",     price: 749, old: 0,    rating: 4.8, badge: "",           img: img("1565958011703-44f9829ba187") },
-    { id: "p3",  name: "Red Velvet Cupcakes",     cat: "Cupcake",  price: 349, old: 420,  rating: 4.7, badge: "Sale",       img: img("1486427944299-d1955d23e34d") },
-    { id: "p4",  name: "Vanilla Swirl Cupcakes",  cat: "Cupcake",  price: 299, old: 0,    rating: 4.6, badge: "",           img: img("1587668178277-295251f900ce") },
-    { id: "p5",  name: "Choco Chip Cookies",      cat: "Cookies",  price: 249, old: 0,    rating: 4.8, badge: "New",        img: img("1499636136210-6f4ee915583e") },
-    { id: "p6",  name: "Butter Shortbread",       cat: "Cookies",  price: 219, old: 269,  rating: 4.5, badge: "Sale",       img: img("1558961363-fa8fdf82db35") },
-    { id: "p7",  name: "Artisan Sourdough",       cat: "Bread",    price: 189, old: 0,    rating: 4.9, badge: "Fresh",      img: img("1509440159596-0249088772ff") },
-    { id: "p8",  name: "Multigrain Loaf",         cat: "Bread",    price: 159, old: 0,    rating: 4.6, badge: "",           img: img("1549931319-a545dcf3bc73") },
-    { id: "p9",  name: "Glazed Donuts (6pc)",     cat: "Donuts",   price: 329, old: 399,  rating: 4.7, badge: "Sale",       img: img("1551024601-bec78aea704b") },
-    { id: "p10", name: "Rainbow Sprinkle Donuts", cat: "Donuts",   price: 359, old: 0,    rating: 4.8, badge: "Popular",    img: img("1533910534207-90f31029a78e") },
-    { id: "p11", name: "Butter Croissant (4pc)",  cat: "Pastries", price: 279, old: 0,    rating: 4.9, badge: "Bestseller", img: img("1555507036-ab1f4038808a") },
-    { id: "p12", name: "Almond Danish",           cat: "Pastries", price: 259, old: 0,    rating: 4.6, badge: "",           img: img("1509365465985-25d11c17e812") },
-    { id: "p13", name: "French Macarons (9pc)",   cat: "Macarons", price: 549, old: 649,  rating: 4.9, badge: "Premium",    img: img("1569864358642-9d1684040f43") },
-    { id: "p14", name: "Pistachio Macarons",      cat: "Macarons", price: 599, old: 0,    rating: 4.8, badge: "",           img: img("1558326567-98ae2405596b") },
-    { id: "p15", name: "Fudge Brownies (4pc)",    cat: "Brownies", price: 299, old: 349,  rating: 4.9, badge: "Sale",       img: img("1606313564200-e75d5e30476c") },
-    { id: "p16", name: "Walnut Brownie Box",      cat: "Brownies", price: 379, old: 0,    rating: 4.7, badge: "",           img: img("1564355808539-22fda35bed7e") },
-    { id: "p17", name: "Classic Gulab Jamun",     cat: "Sweets",   price: 399, old: 0,    rating: 4.8, badge: "Festive",    img: img("1601050690597-df0568f70950") },
-    { id: "p18", name: "Kaju Katli Box",          cat: "Sweets",   price: 649, old: 799,  rating: 4.9, badge: "Sale",       img: img("1666181862036-fd12c9a1a2d0") },
-    { id: "p19", name: "Black Forest Cake",       cat: "Cake",     price: 849, old: 0,    rating: 4.8, badge: "",           img: img("1464349095431-e9a21285b5f3") },
-    { id: "p20", name: "Blueberry Muffins",       cat: "Cupcake",  price: 289, old: 0,    rating: 4.6, badge: "New",        img: img("1607958996333-41aaf7caefaa") },
-    { id: "p21", name: "Oatmeal Raisin Cookies",  cat: "Cookies",  price: 229, old: 0,    rating: 4.5, badge: "",           img: img("1490567674331-72de84996c8f") },
-    { id: "p22", name: "Baguette Trio",           cat: "Bread",    price: 199, old: 0,    rating: 4.7, badge: "Fresh",      img: img("1585478259715-876acc5be8eb") },
-    { id: "p23", name: "Chocolate Eclair (4pc)",  cat: "Pastries", price: 319, old: 369,  rating: 4.8, badge: "Sale",       img: img("1608198093002-ad4e005484ec") },
-    { id: "p24", name: "Wedding Tier Cake",       cat: "Cake",     price: 2499, old: 0,   rating: 5.0, badge: "Premium",    img: img("1535254973040-607b474cb50d") }
+    { id: "p1",  name: "Belgian Chocolate Cake", cat: "Cake",     price: 899, old: 1099, rating: 4.9, badge: "Bestseller", img: img("chocolate-cake") },
+    { id: "p2",  name: "Strawberry Cream Cake",   cat: "Cake",     price: 749, old: 0,    rating: 4.8, badge: "",           img: img("strawberry-cake") },
+    { id: "p3",  name: "Red Velvet Cupcakes",     cat: "Cupcake",  price: 349, old: 420,  rating: 4.7, badge: "Sale",       img: img("cupcakes") },
+    { id: "p4",  name: "Vanilla Swirl Cupcakes",  cat: "Cupcake",  price: 299, old: 0,    rating: 4.6, badge: "",           img: img("vanilla-cupcakes") },
+    { id: "p5",  name: "Choco Chip Cookies",      cat: "Cookies",  price: 249, old: 0,    rating: 4.8, badge: "New",        img: img("cookies") },
+    { id: "p6",  name: "Butter Shortbread",       cat: "Cookies",  price: 219, old: 269,  rating: 4.5, badge: "Sale",       img: img("shortbread") },
+    { id: "p7",  name: "Artisan Sourdough",       cat: "Bread",    price: 189, old: 0,    rating: 4.9, badge: "Fresh",      img: img("breads") },
+    { id: "p8",  name: "Multigrain Loaf",         cat: "Bread",    price: 159, old: 0,    rating: 4.6, badge: "",           img: img("multigrain-loaf") },
+    { id: "p9",  name: "Glazed Donuts (6pc)",     cat: "Donuts",   price: 329, old: 399,  rating: 4.7, badge: "Sale",       img: img("donuts") },
+    { id: "p10", name: "Rainbow Sprinkle Donuts", cat: "Donuts",   price: 359, old: 0,    rating: 4.8, badge: "Popular",    img: img("sprinkle-donuts") },
+    { id: "p11", name: "Butter Croissant (4pc)",  cat: "Pastries", price: 279, old: 0,    rating: 4.9, badge: "Bestseller", img: img("croissants") },
+    { id: "p12", name: "Almond Danish",           cat: "Pastries", price: 259, old: 0,    rating: 4.6, badge: "",           img: img("almond-danish") },
+    { id: "p13", name: "French Macarons (9pc)",   cat: "Macarons", price: 549, old: 649,  rating: 4.9, badge: "Premium",    img: img("macarons") },
+    { id: "p14", name: "Pistachio Macarons",      cat: "Macarons", price: 599, old: 0,    rating: 4.8, badge: "",           img: img("pistachio-macarons") },
+    { id: "p15", name: "Fudge Brownies (4pc)",    cat: "Brownies", price: 299, old: 349,  rating: 4.9, badge: "Sale",       img: img("fudge-brownies") },
+    { id: "p16", name: "Walnut Brownie Box",      cat: "Brownies", price: 379, old: 0,    rating: 4.7, badge: "",           img: img("walnut-brownies") },
+    { id: "p17", name: "Classic Gulab Jamun",     cat: "Sweets",   price: 399, old: 0,    rating: 4.8, badge: "Festive",    img: img("sweets") },
+    { id: "p18", name: "Kaju Katli Box",          cat: "Sweets",   price: 649, old: 799,  rating: 4.9, badge: "Sale",       img: img("kaju-katli") },
+    { id: "p19", name: "Black Forest Cake",       cat: "Cake",     price: 849, old: 0,    rating: 4.8, badge: "",           img: img("birthday-cake") },
+    { id: "p20", name: "Blueberry Muffins",       cat: "Cupcake",  price: 289, old: 0,    rating: 4.6, badge: "New",        img: img("blueberry-muffins") },
+    { id: "p21", name: "Oatmeal Raisin Cookies",  cat: "Cookies",  price: 229, old: 0,    rating: 4.5, badge: "",           img: img("oatmeal-cookies") },
+    { id: "p22", name: "Baguette Trio",           cat: "Bread",    price: 199, old: 0,    rating: 4.7, badge: "Fresh",      img: img("baguettes") },
+    { id: "p23", name: "Chocolate Eclair (4pc)",  cat: "Pastries", price: 319, old: 369,  rating: 4.8, badge: "Sale",       img: img("chocolate-eclair") },
+    { id: "p24", name: "Wedding Tier Cake",       cat: "Cake",     price: 2499, old: 0,   rating: 5.0, badge: "Premium",    img: img("wedding-cake") }
   ];
   window.PRODUCTS = PRODUCTS;
 

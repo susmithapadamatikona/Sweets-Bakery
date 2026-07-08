@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#D29B6B">
+  <meta name="description" content="Your Sweet Crumbs dashboard — orders, favourites, rewards and account at a glance.">
+  <title>Dashboard — Sweet Crumbs Bakery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%81%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#dashMain" class="skip-link">Skip to content</a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <img src="images/logos/stackly-logo.webp" alt="Stackly" class="loader__logo">
+      <div class="loader__ring"></div>
+      <p class="loader__msg">Loading…</p>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <!-- ===== Sidebar (bakery-themed menu) ===== -->
+    <aside class="dash-sidebar" aria-label="Dashboard menu">
+      <a href="index.html" class="logo" aria-label="Stackly home">
+        <img src="images/logos/stackly-logo.webp" alt="Stackly" class="logo__img">
+      </a>
+      <button class="dash-drawer-close" data-dash-menu-close aria-label="Close menu">✕</button>
+      <nav class="dash-menu" aria-label="Dashboard sections">
+        <span class="dash-menu__label">Bakery</span>
+        <a href="#dashboard" data-panel="dashboard" class="active"><span class="ico">🎂</span> Dashboard</a>
+        <a href="#orders" data-panel="orders"><span class="ico">🧁</span> My Orders <span class="badge">3</span></a>
+        <a href="#favourites" data-panel="favourites"><span class="ico">🍩</span> Favourites</a>
+        <a href="#menu" data-panel="menu"><span class="ico">🥐</span> Menu</a>
+        <a href="#offers" data-panel="offers"><span class="ico">🍪</span> Offers &amp; Deals</a>
+        <span class="dash-menu__label">Account</span>
+        <a href="#cart" data-panel="cart"><span class="ico">🛒</span> My Cart</a>
+        <a href="#rewards" data-panel="rewards"><span class="ico">🍬</span> Reward Points</a>
+        <a href="#settings" data-panel="settings"><span class="ico">☕</span> Account Settings</a>
+        <a href="#help" data-panel="help"><span class="ico">🍞</span> Help &amp; Support</a>
+      </nav>
+      <a href="#" class="dash-logout" data-logout><span class="ico">🚪</span> Logout</a>
+    </aside>
+
+    <div class="dash-overlay" data-dash-overlay></div>
+
+    <!-- ===== Main ===== -->
+    <main class="dash-main" id="dashMain">
+      <!-- Mobile top bar (hamburger opens the sidebar drawer) -->
+      <div class="dash-mobile-bar">
+        <button class="dash-hamburger" data-dash-menu-toggle aria-label="Open menu"><span></span><span></span><span></span></button>
+        <a href="index.html" class="logo" aria-label="Stackly home"><img src="images/logos/stackly-logo.webp" alt="Stackly" class="logo__img"></a>
+      </div>
+      <!-- Topbar: logged-in email stays top-right on every panel -->
+      <div class="dash-topbar">
+        <div>
+          <h1>Welcome back, <span data-user-name>Sweet Friend</span>! 👋</h1>
+          <p data-panel-sub>Here's what's baking in your account today.</p>
+        </div>
+        <div class="dash-topbar__right">
+          <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode"></button>
+          <div class="dash-user">
+            <div class="dash-user__info">
+              <b data-user-email>guest@sweetcrumbs.com</b>
+              <small data-user-role>Customer</small>
+            </div>
+            <div class="dash-user__avatar" data-user-initial>🧁</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ PANEL: Dashboard overview ============ -->
+      <section class="dash-panel active" id="panel-dashboard">
+        <div class="dash-welcome">
+          <h2>Freshly baked happiness, just for you 🍰</h2>
+          <p>Track your orders, revisit your favourite treats and redeem sweet rewards — all in one cosy place.</p>
+        </div>
+
+        <div class="dash-stats">
+          <div class="dash-stat"><div class="dash-stat__ico">🧁</div><b>12</b><small>Total Orders</small></div>
+          <div class="dash-stat"><div class="dash-stat__ico">🚚</div><b>2</b><small>Out for Delivery</small></div>
+          <div class="dash-stat"><div class="dash-stat__ico">🍩</div><b>8</b><small>Saved Favourites</small></div>
+          <div class="dash-stat"><div class="dash-stat__ico">🍬</div><b>640</b><small>Reward Points</small></div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="dash-card">
+            <div class="dash-card__head">
+              <h3>Recent Orders</h3>
+              <a href="#orders" data-goto="orders">View all</a>
+            </div>
+            <div class="dash-order">
+              <div class="dash-order__ico">🎂</div>
+              <div class="dash-order__info"><b>Belgian Chocolate Cake</b><small>Order #SC1042</small></div>
+              <div class="dash-order__price"><b>₹899</b><span class="order-status delivered">Delivered</span></div>
+            </div>
+            <div class="dash-order">
+              <div class="dash-order__ico">🧁</div>
+              <div class="dash-order__info"><b>Red Velvet Cupcakes ×2</b><small>Order #SC1041</small></div>
+              <div class="dash-order__price"><b>₹698</b><span class="order-status shipped">Shipped</span></div>
+            </div>
+            <div class="dash-order">
+              <div class="dash-order__ico">🍩</div>
+              <div class="dash-order__info"><b>Glazed Donuts (6pc)</b><small>Order #SC1038</small></div>
+              <div class="dash-order__price"><b>₹329</b><span class="order-status processing">Processing</span></div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card__head"><h3>Quick Actions</h3></div>
+            <div class="dash-actions">
+              <a href="404.html" class="dash-action"><span class="ico">🥐</span> Browse the Menu <span class="arrow">→</span></a>
+              <a href="404.html" class="dash-action"><span class="ico">📦</span> Track an Order <span class="arrow">→</span></a>
+              <a href="404.html" class="dash-action"><span class="ico">🍰</span> My Favourites <span class="arrow">→</span></a>
+              <a href="404.html" class="dash-action"><span class="ico">🎟️</span> Redeem Offers <span class="arrow">→</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PANEL: My Orders ============ -->
+      <section class="dash-panel" id="panel-orders">
+        <div class="dash-section-head"><h2>My Orders 🧁</h2><p>Every treat you've ordered, freshly tracked.</p></div>
+        <div class="dash-card">
+          <div class="table-scroll">
+            <table class="orders-table">
+              <thead><tr><th>Order</th><th>Item</th><th>Date</th><th>Total</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>#SC1042</td><td>Belgian Chocolate Cake</td><td>05 Jul 2026</td><td>₹899</td><td><span class="order-status delivered">Delivered</span></td></tr>
+                <tr><td>#SC1041</td><td>Red Velvet Cupcakes ×2</td><td>04 Jul 2026</td><td>₹698</td><td><span class="order-status shipped">Shipped</span></td></tr>
+                <tr><td>#SC1038</td><td>Glazed Donuts (6pc)</td><td>02 Jul 2026</td><td>₹329</td><td><span class="order-status processing">Processing</span></td></tr>
+                <tr><td>#SC1030</td><td>Butter Croissant (4pc)</td><td>28 Jun 2026</td><td>₹279</td><td><span class="order-status delivered">Delivered</span></td></tr>
+                <tr><td>#SC1021</td><td>French Macarons (9pc)</td><td>21 Jun 2026</td><td>₹549</td><td><span class="order-status delivered">Delivered</span></td></tr>
+                <tr><td>#SC1014</td><td>Kaju Katli Box</td><td>15 Jun 2026</td><td>₹649</td><td><span class="order-status cancelled">Cancelled</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PANEL: Favourites ============ -->
+      <section class="dash-panel" id="panel-favourites">
+        <div class="dash-section-head"><h2>Your Favourites 🍩</h2><p>The treats you keep coming back for.</p></div>
+        <div class="dash-treats" id="dashFavGrid"></div>
+      </section>
+
+      <!-- ============ PANEL: Menu ============ -->
+      <section class="dash-panel" id="panel-menu">
+        <div class="dash-section-head"><h2>Our Menu 🥐</h2><p>Browse every freshly baked treat by category.</p></div>
+        <div class="dash-chips" id="dashMenuChips"></div>
+        <div class="dash-treats" id="dashMenuGrid"></div>
+      </section>
+
+      <!-- ============ PANEL: Offers ============ -->
+      <section class="dash-panel" id="panel-offers">
+        <div class="dash-section-head"><h2>Offers &amp; Deals 🍪</h2><p>Sweet savings, handpicked for you.</p></div>
+        <div class="dash-offers">
+          <div class="dash-offer">
+            <h3>25% off Cakes 🎂</h3>
+            <p>On all celebration cakes this week. Make someone's day extra sweet.</p>
+            <span class="code" data-copy="CAKE25">CAKE25 <button class="copy-btn" data-copy="CAKE25" aria-label="Copy code">📋</button></span>
+          </div>
+          <div class="dash-offer">
+            <h3>Free Donut Box 🍩</h3>
+            <p>Get a free 6-pack of glazed donuts on orders above ₹999.</p>
+            <span class="code" data-copy="FREEDONUT">FREEDONUT <button class="copy-btn" data-copy="FREEDONUT" aria-label="Copy code">📋</button></span>
+          </div>
+          <div class="dash-offer">
+            <h3>Weekend Macarons 🌈</h3>
+            <p>Buy 1 box of macarons, get the second at 50% off. Fri–Sun only.</p>
+            <span class="code" data-copy="MAC50">MAC50 <button class="copy-btn" data-copy="MAC50" aria-label="Copy code">📋</button></span>
+          </div>
+          <div class="dash-offer">
+            <h3>First Order Treat 🧁</h3>
+            <p>New here? Enjoy 15% off your very first Sweet Crumbs order.</p>
+            <span class="code" data-copy="SWEET15">SWEET15 <button class="copy-btn" data-copy="SWEET15" aria-label="Copy code">📋</button></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PANEL: My Cart ============ -->
+      <section class="dash-panel" id="panel-cart">
+        <div class="dash-section-head"><h2>My Cart 🛒</h2><p>Ready to check out your goodies?</p></div>
+        <div class="dash-grid">
+          <div class="dash-card">
+            <div class="dash-order">
+              <div class="dash-order__ico">🍓</div>
+              <div class="dash-order__info"><b>Strawberry Cream Cake</b><small>Qty 1</small></div>
+              <div class="dash-order__price"><b>₹749</b></div>
+            </div>
+            <div class="dash-order">
+              <div class="dash-order__ico">🥐</div>
+              <div class="dash-order__info"><b>Butter Croissant (4pc)</b><small>Qty 2</small></div>
+              <div class="dash-order__price"><b>₹558</b></div>
+            </div>
+            <div class="dash-order">
+              <div class="dash-order__ico">🍪</div>
+              <div class="dash-order__info"><b>Choco Chip Cookies</b><small>Qty 1</small></div>
+              <div class="dash-order__price"><b>₹249</b></div>
+            </div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card__head"><h3>Summary</h3></div>
+            <div class="dash-summary-row"><span>Subtotal</span><b>₹1,556</b></div>
+            <div class="dash-summary-row"><span>Delivery</span><b>₹49</b></div>
+            <div class="dash-summary-row dash-summary-row--total"><span>Total</span><b>₹1,605</b></div>
+            <a href="404.html" class="btn btn--primary btn--block" style="margin-top:16px">Proceed to Checkout</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PANEL: Reward Points ============ -->
+      <section class="dash-panel" id="panel-rewards">
+        <div class="dash-section-head"><h2>Reward Points 🍬</h2><p>Earn sweet points on every order and redeem for treats.</p></div>
+        <div class="dash-card dash-reward">
+          <div class="dash-reward__points">640</div>
+          <small style="color:var(--text-muted)">points — 360 more to unlock a free cake 🎂</small>
+          <div class="dash-reward__bar"><span style="width:64%"></span></div>
+          <small style="color:var(--text-muted)">640 / 1000 points</small>
+        </div>
+        <div class="dash-card" style="margin-top:24px">
+          <div class="dash-card__head"><h3>How to earn</h3></div>
+          <div class="dash-order"><div class="dash-order__ico">🛍️</div><div class="dash-order__info"><b>Place an order</b><small>Earn 1 point per ₹10 spent</small></div></div>
+          <div class="dash-order"><div class="dash-order__ico">⭐</div><div class="dash-order__info"><b>Write a review</b><small>+50 points per reviewed treat</small></div></div>
+          <div class="dash-order"><div class="dash-order__ico">🎂</div><div class="dash-order__info"><b>Birthday bonus</b><small>+200 points in your birthday month</small></div></div>
+        </div>
+      </section>
+
+      <!-- ============ PANEL: Account Settings ============ -->
+      <section class="dash-panel" id="panel-settings">
+        <div class="dash-section-head"><h2>Account Settings ☕</h2><p>Keep your details fresh.</p></div>
+        <div class="dash-card">
+          <form class="dash-form" data-settings-form>
+            <div class="form-row">
+              <div class="field"><label>Full Name</label><input class="input" data-fill-name placeholder="Your name"></div>
+              <div class="field"><label>Email Address</label><input class="input" type="email" data-fill-email placeholder="you@email.com"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label>Phone</label><input class="input" placeholder="+91 98765 43210"></div>
+              <div class="field"><label>Role</label><input class="input" data-fill-role readonly></div>
+            </div>
+            <div class="field"><label>Delivery Address</label><input class="input" placeholder="House no, street, city"></div>
+            <button type="submit" class="btn btn--primary">Save Changes</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ============ PANEL: Help & Support ============ -->
+      <section class="dash-panel" id="panel-help">
+        <div class="dash-section-head"><h2>Help &amp; Support 🍞</h2><p>We're here to help — sweetly.</p></div>
+        <div class="dash-help-grid">
+          <div class="dash-help-card"><div class="ico">📦</div><h3>Order Help</h3><p>Track, change or cancel an order.</p></div>
+          <div class="dash-help-card"><div class="ico">💬</div><h3>Live Chat</h3><p>Chat with our bakery team 9am–9pm.</p></div>
+          <div class="dash-help-card"><div class="ico">❓</div><h3>FAQ</h3><p>Answers to common questions.</p></div>
+        </div>
+        <div class="dash-card" style="margin-top:24px;text-align:center">
+          <h3 style="margin-bottom:8px">Still need a hand?</h3>
+          <p style="color:var(--text-muted);margin-bottom:18px">Reach out and we'll get back within a few hours.</p>
+          <a href="404.html" class="btn btn--primary">Contact Support</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

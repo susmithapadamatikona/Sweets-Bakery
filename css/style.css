@@ -56,7 +56,8 @@
   --grad-primary: linear-gradient(135deg, #E0AE7C 0%, #D29B6B 45%, #B49274 100%);
   --grad-warm: linear-gradient(135deg, #F9E1CF 0%, #F4D4C1 100%);
   --grad-accent: linear-gradient(135deg, #B49274 0%, #9B6B52 100%);
-  --hero-overlay: linear-gradient(135deg, rgba(249,225,207,0.96) 0%, rgba(244,212,193,0.86) 60%, rgba(249,225,207,0.72) 100%);
+  --hero-overlay: linear-gradient(135deg, rgba(40,22,13,0.66) 0%, rgba(56,31,19,0.52) 55%, rgba(40,22,13,0.44) 100%);
+  --hero-text-shadow: 0 2px 14px rgba(0,0,0,0.55);
 }
 
 /* ---------- Dark Mode ---------- */
@@ -72,7 +73,8 @@
   --glass:         rgba(51, 36, 28, 0.55);
   --glass-border:  rgba(210, 155, 107, 0.25);
   --grad-warm: linear-gradient(135deg, #241813 0%, #33241c 100%);
-  --hero-overlay: linear-gradient(135deg, rgba(36,24,19,0.95) 0%, rgba(51,36,28,0.88) 60%, rgba(36,24,19,0.8) 100%);
+  --hero-overlay: linear-gradient(135deg, rgba(20,12,7,0.72) 0%, rgba(30,18,11,0.58) 55%, rgba(20,12,7,0.48) 100%);
+  --hero-text-shadow: 0 2px 14px rgba(0,0,0,0.6);
   --shadow-xs: 0 4px 12px rgba(0,0,0,0.28);
   --shadow-sm: 0 8px 24px rgba(0,0,0,0.34);
   --shadow-md: 0 16px 40px rgba(0,0,0,0.42);
@@ -141,10 +143,11 @@ button { cursor: pointer; border: none; background: none; }
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   font-family: var(--font-body); font-weight: 600; font-size: 16px;
   padding: 15px 32px; border-radius: var(--radius-pill);
-  cursor: pointer; border: 2px solid transparent;
+  cursor: pointer; border: 2px solid transparent; white-space: nowrap;
   transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease);
   will-change: transform;
 }
+.btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 .btn:active { transform: scale(0.97); }
 
 .btn--primary { background: var(--grad-primary); color: var(--white); box-shadow: var(--shadow-glow); }
@@ -167,15 +170,18 @@ button { cursor: pointer; border: none; background: none; }
 /* ---------- Preloader ---------- */
 #preloader {
   position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center;
-  background: var(--grad-warm); transition: opacity 0.6s var(--ease), visibility 0.6s;
+  background: linear-gradient(160deg, #3a2318 0%, #241813 100%); transition: opacity 0.6s var(--ease), visibility 0.6s;
 }
 #preloader.hidden { opacity: 0; visibility: hidden; }
 .loader { text-align: center; }
+.loader__logo { width: 220px; max-width: 68vw; height: auto; display: block; margin: 0 auto 26px; animation: loaderPulse 1.8s var(--ease) infinite; }
 .loader__ring {
-  width: 78px; height: 78px; margin: 0 auto 18px; border-radius: 50%;
-  border: 5px solid var(--light-accent); border-top-color: var(--primary);
+  width: 62px; height: 62px; margin: 0 auto 16px; border-radius: 50%;
+  border: 5px solid rgba(255,255,255,0.15); border-top-color: var(--primary);
   animation: spin 0.9s linear infinite;
 }
+.loader__msg { font-family: var(--font-body); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.72); }
+@keyframes loaderPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.72; transform: scale(0.97); } }
 .loader__text { font-family: var(--font-head); font-size: 22px; color: var(--accent-brown); letter-spacing: 1px; }
 .loader__text small { display: block; font-family: var(--font-body); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -272,7 +278,19 @@ button { cursor: pointer; border: none; background: none; }
 .search-box button svg { width: 16px; height: 16px; }
 
 /* Auth buttons in nav */
-.nav__auth { display: flex; align-items: center; gap: 8px; }
+.nav__menu .icon-btn {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+}
+.nav__menu .nav__auth { margin-left: 10px; }
+.nav__auth {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 14px;
+  flex: 0 0 auto;
+}
 
 /* Hamburger */
 .hamburger { display: none; width: 46px; height: 46px; border-radius: 14px; background: var(--surface); box-shadow: var(--shadow-xs); position: relative; }
@@ -298,15 +316,14 @@ button { cursor: pointer; border: none; background: none; }
 /* =====================================================
    PAGE HERO (inner pages)
    ===================================================== */
-.page-hero { position: relative; padding: 80px 0 90px; text-align: center; overflow: hidden; background: var(--grad-warm); }
-.page-hero::before {
-  content: ""; position: absolute; inset: 0;
-  background-image: var(--hero-img, none);
-  background-size: cover; background-position: center;
-}
-.page-hero::after { content: ""; position: absolute; inset: 0; background: var(--hero-overlay); }
+.page-hero { position: relative; padding: 80px 0 90px; text-align: center; overflow: hidden; background: var(--grad-warm); background-size: cover; background-position: center; background-repeat: no-repeat; }
+.page-hero::before { content: ""; position: absolute; inset: 0; background: var(--hero-overlay); z-index: 1; }
 .page-hero .container { position: relative; z-index: 2; }
-.page-hero h1 { font-size: clamp(34px, 5vw, 56px); }
+.page-hero h1 { font-size: clamp(34px, 5vw, 56px); color: #fff; text-shadow: var(--hero-text-shadow); }
+.page-hero .breadcrumb { color: rgba(255,255,255,0.85); text-shadow: var(--hero-text-shadow); }
+.page-hero .breadcrumb a { color: #fff; }
+.page-hero .breadcrumb a:hover { color: var(--primary); }
+.page-hero .breadcrumb span { color: rgba(255,255,255,0.6); }
 .breadcrumb { display: inline-flex; align-items: center; gap: 10px; margin-top: 14px; color: var(--text-muted); font-size: 15px; font-weight: 500; }
 .breadcrumb a:hover { color: var(--primary); }
 .breadcrumb span { opacity: 0.6; }
@@ -441,3 +458,84 @@ button { cursor: pointer; border: none; background: none; }
 :focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
 .skip-link { position: absolute; left: -999px; top: 8px; background: var(--primary); color: #fff; padding: 10px 18px; border-radius: var(--radius); z-index: 9999; }
 .skip-link:focus { left: 8px; }
+
+/* =====================================================
+   PREMIUM MOTION LAYER
+   GPU-accelerated (transform/opacity), reduced-motion aware.
+   Applies site-wide via the shared stylesheet.
+   ===================================================== */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---- Page enter: fade + slight rise (content area) ---- */
+  @keyframes pageEnter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  #main, .dash-main { animation: pageEnter 0.5s var(--ease) both; }
+
+  /* ---- Cards: elevation + shadow expansion + border glow ---- */
+  .card, .info-card, .service-card, .mv-card, .dash-stat, .dash-treat, .dash-help-card, .hour-item, .faq-item {
+    position: relative;
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+  }
+  .card:hover, .info-card:hover, .service-card:hover, .mv-card:hover,
+  .dash-stat:hover, .dash-treat:hover, .dash-help-card:hover {
+    box-shadow: 0 24px 50px rgba(155,107,82,0.24), 0 0 0 1px rgba(210,155,107,0.4);
+    border-color: rgba(210,155,107,0.55);
+  }
+  .card:active, .dash-treat:active, .dash-action:active, .dash-stat:active { transform: scale(0.99); }
+
+  /* ---- Buttons: sheen sweep + primary glow ---- */
+  .btn::after {
+    content: ""; position: absolute; top: 0; left: -130%; width: 55%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.38), transparent);
+    transform: skewX(-20deg); transition: left 0.6s var(--ease); pointer-events: none; z-index: 1;
+  }
+  .btn:hover::after { left: 150%; }
+  .btn--primary:hover { box-shadow: 0 14px 34px rgba(210,155,107,0.5); }
+
+  /* ---- Ripple ---- */
+  .ripple--soft { background: rgba(210,155,107,0.4) !important; }
+
+  /* ---- Button loading spinner ---- */
+  .btn.is-loading { color: transparent !important; pointer-events: none; }
+  .btn.is-loading > * { opacity: 0; }
+  .btn.is-loading::before {
+    content: ""; position: absolute; top: 50%; left: 50%; width: 20px; height: 20px; margin: -10px 0 0 -10px;
+    border: 2.5px solid rgba(255,255,255,0.45); border-top-color: #fff; border-radius: 50%;
+    animation: spin 0.7s linear infinite; z-index: 2;
+  }
+  /* ---- Button success checkmark ---- */
+  .btn.is-success { color: transparent !important; pointer-events: none; background: #4b9b6b !important; }
+  .btn.is-success > * { opacity: 0; }
+  .btn.is-success::before {
+    content: ""; position: absolute; top: 46%; left: 50%; width: 11px; height: 20px; margin: -13px 0 0 -6px;
+    border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg) scale(0);
+    animation: checkPop 0.35s var(--ease) 0.05s forwards; z-index: 2;
+  }
+  @keyframes checkPop { to { transform: rotate(45deg) scale(1); } }
+
+  /* ---- Nav + icon micro-interactions ---- */
+  .nav__link { transition: color 0.3s var(--ease), transform 0.3s var(--ease); }
+  .nav__link:hover { transform: translateY(-1px); }
+
+  /* ---- Hero media gentle zoom ---- */
+  .hero__img-main img { transition: transform 0.8s var(--ease); }
+  .hero__media:hover .hero__img-main img { transform: scale(1.04); }
+}
+
+/* ---- Skeleton shimmer utility (loading placeholders) ---- */
+.skeleton { position: relative; overflow: hidden; background: var(--light-accent); border-radius: var(--radius); }
+.skeleton::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  transform: translateX(-100%); animation: shimmer 1.4s infinite;
+}
+:root[data-theme="dark"] .skeleton::after { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+
+/* ---- Reduced motion: neutralize all motion globally ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important; scroll-behavior: auto !important;
+  }
+  .skeleton::after { animation: none; }
+}
