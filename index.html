@@ -15,6 +15,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%81%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -333,31 +334,33 @@
       <h2 class="section-title" data-reveal="up" data-delay="1">Sweet Words From <span class="accent">Sweet People</span></h2>
       
     </div>
-        <div class="testi-slider" data-slider>
-          <div class="testi-track">
-            <div class="testi-slide"><div class="testi-card">
+        <div class="testi-slider testi-swiper swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><div class="testi-card">
               <div class="quote-mark">&ldquo;</div>
               <div class="rating">★★★★★</div>
               <p>The Belgian chocolate cake was pure magic — moist, rich and gone in minutes! Sweet Crumbs is now our family's go-to bakery for every celebration.</p>
               <div class="testi-author"><img src="images/avatar-1.webp" alt="Ananya Sharma" loading="lazy"><div style="text-align:left"><b>Ananya Sharma</b><small>Food Blogger</small></div></div>
-            </div></div><div class="testi-slide"><div class="testi-card">
+            </div></div><div class="swiper-slide"><div class="testi-card">
               <div class="quote-mark">&ldquo;</div>
               <div class="rating">★★★★★</div>
               <p>I ordered a custom wedding cake and it exceeded every expectation. Beautiful, delicious and delivered right on time. Absolutely five stars!</p>
               <div class="testi-author"><img src="images/avatar-2.webp" alt="Rohan Mehta" loading="lazy"><div style="text-align:left"><b>Rohan Mehta</b><small>Groom, 2026</small></div></div>
-            </div></div><div class="testi-slide"><div class="testi-card">
+            </div></div><div class="swiper-slide"><div class="testi-card">
               <div class="quote-mark">&ldquo;</div>
               <div class="rating">★★★★★</div>
               <p>Their morning croissants are the best in town. Flaky, buttery perfection with my coffee every single day. I'm officially addicted!</p>
               <div class="testi-author"><img src="images/avatar-3.webp" alt="Priya Nair" loading="lazy"><div style="text-align:left"><b>Priya Nair</b><small>Regular Customer</small></div></div>
-            </div></div><div class="testi-slide"><div class="testi-card">
+            </div></div><div class="swiper-slide"><div class="testi-card">
               <div class="quote-mark">&ldquo;</div>
               <div class="rating">★★★★★</div>
               <p>Fresh, warm and made with love — you can taste the difference. The team is friendly and the packaging is gorgeous. Highly recommend!</p>
               <div class="testi-author"><img src="images/avatar-4.webp" alt="Arjun Kapoor" loading="lazy"><div style="text-align:left"><b>Arjun Kapoor</b><small>Corporate Client</small></div></div>
             </div></div>
           </div>
-          <div class="testi-nav"></div>
+          <div class="swiper-pagination"></div>
+          <button class="swiper-button-prev" aria-label="Previous testimonial"></button>
+          <button class="swiper-button-next" aria-label="Next testimonial"></button>
         </div>
       </div>
     </section>
@@ -470,6 +473,7 @@
   <script src="js/cart.js"></script>
   <script src="js/wishlist.js"></script>
   <script src="js/search.js"></script>
+  <script src="js/swiper-bundle.min.js"></script>
   <script src="js/slider.js"></script>
   <script src="js/validation.js"></script>
 </body>

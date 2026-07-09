@@ -120,6 +120,23 @@
 .testi-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--border); cursor: pointer; transition: 0.3s var(--ease); }
 .testi-dot.active { background: var(--primary); width: 34px; border-radius: var(--radius-pill); }
 
+/* ---------- Swiper testimonial theming ---------- */
+.testi-swiper { position: relative; padding: 6px 6px 56px; overflow: hidden; }
+.testi-swiper .swiper-slide { height: auto; display: flex; }
+.testi-swiper .swiper-slide .testi-card { width: 100%; }
+.testi-swiper .swiper-pagination { bottom: 14px; }
+.testi-swiper .swiper-pagination-bullet { background: var(--primary); opacity: 0.3; width: 9px; height: 9px; transition: width 0.3s var(--ease), opacity 0.3s var(--ease); }
+.testi-swiper .swiper-pagination-bullet-active { opacity: 1; width: 28px; border-radius: 6px; }
+.testi-swiper .swiper-button-prev, .testi-swiper .swiper-button-next {
+  width: 46px; height: 46px; border-radius: 50%; background: var(--surface);
+  border: 1px solid var(--border); box-shadow: var(--shadow-sm); color: var(--primary);
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.testi-swiper .swiper-button-prev:hover, .testi-swiper .swiper-button-next:hover { background: var(--primary); color: #fff; transform: scale(1.06); }
+.testi-swiper .swiper-button-prev::after, .testi-swiper .swiper-button-next::after { font-size: 17px; font-weight: 800; }
+.testi-swiper.no-swiper .swiper-button-prev, .testi-swiper.no-swiper .swiper-button-next, .testi-swiper.no-swiper .swiper-pagination { display: none; }
+@media (max-width: 560px) { .testi-swiper .swiper-button-prev, .testi-swiper .swiper-button-next { display: none; } }
+
 /* ---------- BLOG PREVIEW ---------- */
 .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .blog-card { display: flex; flex-direction: column; }
