@@ -384,7 +384,10 @@ button { cursor: pointer; border: none; background: none; }
 .input:focus, .textarea:focus, select.input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(210,155,107,0.16); }
 .textarea { resize: vertical; min-height: 130px; }
 .input-group { position: relative; }
-.input-group .toggle-eye { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+.input-group .input { padding-right: 48px; }
+.input-group .toggle-eye { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; display: grid; place-items: center; color: var(--text-muted); border-radius: 50%; transition: color 0.3s var(--ease), background 0.3s var(--ease); }
+.input-group .toggle-eye:hover { color: var(--primary); background: var(--light-accent); }
+.input-group .toggle-eye svg { width: 20px; height: 20px; display: block; }
 .field-error { color: #c0492f; font-size: 13px; margin-top: 6px; min-height: 16px; display: block; }
 .input.invalid { border-color: #c0492f; }
 .input.valid { border-color: #4b9b6b; }

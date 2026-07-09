@@ -22,9 +22,9 @@
 .auth-form-side h1 { font-size: 32px; }
 .auth-form-side .sub { color: var(--text-muted); margin: 8px 0 26px; }
 .auth-social { display: flex; gap: 12px; margin-bottom: 22px; }
-.auth-social button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border-radius: var(--radius); border: 1.5px solid var(--border); background: var(--surface); font-weight: 500; transition: 0.3s var(--ease); }
-.auth-social button:hover { background: var(--light-accent); border-color: var(--primary); }
-.auth-social svg, .auth-social span.g { width: 20px; height: 20px; }
+.auth-social a, .auth-social button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border-radius: var(--radius); border: 1.5px solid var(--border); background: var(--surface); color: var(--text); font-weight: 500; transition: background 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease); }
+.auth-social a:hover, .auth-social button:hover { background: var(--light-accent); border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.auth-social svg { width: 20px; height: 20px; flex-shrink: 0; }
 .divider-or { display: flex; align-items: center; gap: 14px; color: var(--text-muted); font-size: 14px; margin: 18px 0; }
 .divider-or::before, .divider-or::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 .auth-row { display: flex; align-items: center; justify-content: space-between; margin: 4px 0 20px; flex-wrap: wrap; gap: 8px; }
